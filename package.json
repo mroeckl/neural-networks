@@ -6,10 +6,10 @@
   "scripts": {
     "train": "node train.js"
   },
-  "author": "Matthias Röckl <matthias.roeckl@bshg.com>",
+  "author": "Matthias Röckl <mroeckl@googlemail.com>",
   "license": "UNLICENSED",
   "dependencies": {
     "mnist": "^1.0.5",
-    "synaptic": "^1.0.12"
+    "neataptic": "^1.4.4"
   }
 }
