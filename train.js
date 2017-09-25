@@ -4,7 +4,7 @@ var fs = require('fs');
 
 // Prepare the network and the training set
 var net = new neataptic.architect.Perceptron(28 * 28, 20, 10)
-var set = mnist.set(8000).training;
+var set = mnist.set(8000, 2000).training;
 
 // Train the network
 net.train(set, {

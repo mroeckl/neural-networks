@@ -10,11 +10,11 @@ window.onload = function() {
  */
 function run() {
   // Get a random image from dataset and guess the depicted digit
-  var number = Math.random() * 10 | 0
-  var input = mnist[number].get()
+  var sample = mnist.set(8000, 2000).test[0]
+  var actualDigit = sample.output.indexOf(Math.max.apply(Math, sample.output))
+  var input = sample.input
   var output = activate(input)
-  var max = output.reduce((max, activation) => Math.max(max, activation), 0)
-  var guess = output.indexOf(max)
+  var guessedDigit = output.indexOf(Math.max.apply(Math, output))
 
   // clone the item before modifying it
   var clonedItem = item.cloneNode(true)
@@ -22,8 +22,8 @@ function run() {
   // Show the image and the guess
   mnist.draw(input, item.children[0].getContext('2d'))
   node = item.children[1]
-  node.classList = [guess == number ? 'yei' : 'nope']
-  node.innerHTML = guess;
+  node.classList = [guessedDigit == actualDigit ? 'yei' : 'nope']
+  node.innerHTML = guessedDigit;
 
   // Append the new item placeholder
   item.parentNode.appendChild(clonedItem)
